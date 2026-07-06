@@ -97,15 +97,20 @@ scoreDisplay.classList.add('score-display');
 container.appendChild(scoreDisplay);
 scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
 
+const scoreRound = document.createElement('div');
+scoreRound.classList.add('score-round');
+container.appendChild(scoreRound);
+
+
 
 const checkWinner = () => {
     if (humanScore === 5) {
         winnerMessage.textContent = 'You are the Winner';
-        restart.style.display = 'block';
+        restart.style.display = 'flex';
     }
     else if (computerScore === 5) {
         winnerMessage.textContent = 'Good luck next time';
-        restart.style.display = 'block';
+        restart.style.display = 'flex';
     }
 }
 
