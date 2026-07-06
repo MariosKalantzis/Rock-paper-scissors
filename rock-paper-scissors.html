@@ -5,11 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="rock-paper-scissors.js"></script>
+    <script src="rock-paper-scissors.js" defer></script>
+    <link rel="stylesheet" href="rock-paper-scissors.css">
 </head>
 
 <body>
-    <p>Right Click on Inspect and open Console to play </p>
+
+    <div class="container">
+        <button class="rock"> Rock</button>
+        <button class="paper"> Paper</button>
+        <button class="scissors"> Scissors</button>
+    </div>
+    <div class="restart">
+        <h1 class="winner-message"></h1>
+        <button class="play">Restart!</button>
+    </div>
 </body>
 
 </html>
