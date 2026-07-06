@@ -76,7 +76,6 @@ const restart = document.querySelector('.restart');
 rockButton.addEventListener('click', () => {
     scoreRound.textContent = playRound('rock', getComputerChoice());
     scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
-
     checkWinner();
 
 });
@@ -84,7 +83,6 @@ rockButton.addEventListener('click', () => {
 paperButton.addEventListener('click', () => {
     scoreRound.textContent = playRound('paper', getComputerChoice());
     scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
-
     checkWinner();
 });
 
@@ -121,6 +119,7 @@ restartButton.addEventListener('click', () => {
     computerScore = 0;
     scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
     restart.style.display = 'none';
+    scoreRound.textContent = '';
 });
 
 

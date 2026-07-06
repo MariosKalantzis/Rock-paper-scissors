@@ -1,5 +1,13 @@
 body {
-    background-color: lightgrey;
+    margin: 0;
+    background-color: #0f172a;
+    color: crimson;
+}
+
+.title {
+    font-size: 48px;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
 }
 
 .restart {
@@ -22,4 +30,9 @@ body {
     align-items: center;
     height: 100vh;
     gap: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
 }
