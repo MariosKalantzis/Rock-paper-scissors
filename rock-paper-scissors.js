@@ -69,6 +69,9 @@ const paperButton = document.querySelector('.paper');
 const scissorsButton = document.querySelector('.scissors');
 const container = document.querySelector('.container');
 const winnerMessage = document.querySelector('.winner-message');
+const restartButton = document.querySelector('.play');
+const restart = document.querySelector('.restart');
+
 
 rockButton.addEventListener('click', () => {
     console.log(playRound('rock', getComputerChoice()));
@@ -98,11 +101,20 @@ scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerS
 const checkWinner = () => {
     if (humanScore === 5) {
         winnerMessage.textContent = 'You are the Winner';
+        restart.style.display = 'block';
     }
     else if (computerScore === 5) {
         winnerMessage.textContent = 'Good luck next time';
+        restart.style.display = 'block';
     }
 }
+
+restartButton.addEventListener('click', () => {
+    humanScore = 0;
+    computerScore = 0;
+    scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
+    restart.style.display = 'none';
+});
 
 
 
