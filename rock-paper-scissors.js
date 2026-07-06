@@ -76,6 +76,7 @@ const restart = document.querySelector('.restart');
 rockButton.addEventListener('click', () => {
     console.log(playRound('rock', getComputerChoice()));
     scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
+    scoreRound.textContent = playRound('rock', getComputerChoice());
     checkWinner();
 
 });
@@ -83,12 +84,14 @@ rockButton.addEventListener('click', () => {
 paperButton.addEventListener('click', () => {
     console.log(playRound('paper', getComputerChoice()));
     scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
+    scoreRound.textContent = playRound('paper', getComputerChoice());
     checkWinner();
 });
 
 scissorsButton.addEventListener('click', () => {
     console.log(playRound('scissors', getComputerChoice()));
     scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
+    scoreRound.textContent = playRound('scissors', getComputerChoice());
     checkWinner();
 });
 
