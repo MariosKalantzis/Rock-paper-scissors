@@ -11,13 +11,6 @@ const getComputerChoice = () => {
     else return 'scissors'
 }
 
-const getHumanChoice = () => {
-    return prompt("Please type your choice : Rock , Paper , Scissors").toLowerCase();
-}
-const playGame = () => {
-
-
-}
 let humanScore = 0;
 let computerScore = 0;
 const playRound = (humanSelection, computerSelection) => {
@@ -28,39 +21,24 @@ const playRound = (humanSelection, computerSelection) => {
     }
     else if (humanSelection === 'rock' && computerSelection === 'scissors') {
         humanScore++;
-        return 'You win'
+        return 'You win! Rock beats Scissors'
     }
     else if (humanSelection === 'paper' && computerSelection === 'rock') {
         humanScore++;
-        return 'You win'
+        return 'You win! Paper beats Rock'
     }
     else if (humanSelection === 'scissors' && computerSelection === 'paper') {
         humanScore++;
-        return 'You win'
+        return 'You win! Scissors beats Paper'
 
     }
     else {
         computerScore++;
-        return 'computer wins'
+        return `Computer Wins! ${computerSelection} beats ${humanSelection}`
 
 
     }
 
-    // for (let i = 0; i < 5; i++) {
-    //     const humanSelection = getHumanChoice();
-    //     const computerSelection = getComputerChoice();
-
-    //     const result = playRound(humanSelection, computerSelection);
-    //     console.log(result);
-    //     console.log(`Score — You: ${humanScore} | Computer: ${computerScore}`);
-    // }
-    // if (humanScore > computerScore) {
-    //     return 'You are the Winner'
-    // }
-    // else if (humanScore < computerScore) {
-    //     return 'Good luck next time'
-    // }
-    // else return 'draw'
 
 }
 
@@ -71,23 +49,33 @@ const container = document.querySelector('.container');
 const winnerMessage = document.querySelector('.winner-message');
 const restartButton = document.querySelector('.play');
 const restart = document.querySelector('.restart');
-
+const playerChoice = document.querySelector('.player-choice');
+const compChoice = document.querySelector('.computer-choice');
 
 rockButton.addEventListener('click', () => {
-    scoreRound.textContent = playRound('rock', getComputerChoice());
+    const computerSelection = getComputerChoice();
+    compChoice.textContent = computerSelection === 'rock' ? "🪨" : computerSelection === 'paper' ? "📄" : "✂️";
+    scoreRound.textContent = playRound('rock', computerSelection);
+    playerChoice.textContent = "🪨";
     scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
     checkWinner();
 
 });
 
 paperButton.addEventListener('click', () => {
-    scoreRound.textContent = playRound('paper', getComputerChoice());
+    const computerSelection = getComputerChoice();
+    compChoice.textContent = computerSelection === 'rock' ? "🪨" : computerSelection === 'paper' ? "📄" : "✂️";
+    scoreRound.textContent = playRound('paper', computerSelection);
+    playerChoice.textContent = "📄";
     scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
     checkWinner();
 });
 
 scissorsButton.addEventListener('click', () => {
-    scoreRound.textContent = playRound('scissors', getComputerChoice());
+    const computerSelection = getComputerChoice();
+    compChoice.textContent = computerSelection === 'rock' ? "🪨" : computerSelection === 'paper' ? "📄" : "✂️";
+    scoreRound.textContent = playRound('scissors', computerSelection);
+    playerChoice.textContent = "✂️";
     scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
     checkWinner();
 });
@@ -107,10 +95,13 @@ const checkWinner = () => {
     if (humanScore === 5) {
         winnerMessage.textContent = 'You are the Winner';
         restart.style.display = 'flex';
+        winnerMessage.style.color = '#fbbf24';
+
     }
     else if (computerScore === 5) {
         winnerMessage.textContent = 'Good luck next time';
         restart.style.display = 'flex';
+        winnerMessage.style.color = 'crimson';
     }
 }
 
