@@ -52,31 +52,41 @@ const restart = document.querySelector('.restart');
 const playerChoice = document.querySelector('.player-choice');
 const compChoice = document.querySelector('.computer-choice');
 
+const revealChoice = (el, choice) => {
+    el.classList.remove('reveal');
+    void el.offsetWidth;
+    el.textContent = choice === 'rock' ? "🪨" : choice === 'paper' ? "📄" : "✂️";
+    el.classList.add('reveal');
+}
+
 rockButton.addEventListener('click', () => {
     const computerSelection = getComputerChoice();
-    compChoice.textContent = computerSelection === 'rock' ? "🪨" : computerSelection === 'paper' ? "📄" : "✂️";
+    revealChoice(compChoice, computerSelection);
     scoreRound.textContent = playRound('rock', computerSelection);
     playerChoice.textContent = "🪨";
     scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
+    revealChoice(playerChoice, 'rock');
     checkWinner();
 
 });
 
 paperButton.addEventListener('click', () => {
     const computerSelection = getComputerChoice();
-    compChoice.textContent = computerSelection === 'rock' ? "🪨" : computerSelection === 'paper' ? "📄" : "✂️";
+    revealChoice(compChoice, computerSelection);
     scoreRound.textContent = playRound('paper', computerSelection);
     playerChoice.textContent = "📄";
     scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
+    revealChoice(playerChoice, 'paper');
     checkWinner();
 });
 
 scissorsButton.addEventListener('click', () => {
     const computerSelection = getComputerChoice();
-    compChoice.textContent = computerSelection === 'rock' ? "🪨" : computerSelection === 'paper' ? "📄" : "✂️";
+    revealChoice(compChoice, computerSelection);
     scoreRound.textContent = playRound('scissors', computerSelection);
     playerChoice.textContent = "✂️";
     scoreDisplay.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
+    revealChoice(playerChoice, 'scissors');
     checkWinner();
 });
 
@@ -112,6 +122,7 @@ restartButton.addEventListener('click', () => {
     restart.style.display = 'none';
     scoreRound.textContent = '';
 });
+
 
 
 

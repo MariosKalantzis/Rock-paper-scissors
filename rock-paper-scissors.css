@@ -96,3 +96,47 @@ body {
     font-size: 56px;
     text-shadow: 0 0 20px crimson;
 }
+
+.battle-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    font-size: 64px;
+    min-height: 90px;
+}
+
+.vs {
+    font-size: 24px;
+    color: crimson;
+    opacity: 0.7;
+}
+
+.player-choice,
+.computer-choice {
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+}
+
+.player-choice.reveal,
+.computer-choice.reveal {
+    animation: reveal 0.3s ease;
+}
+
+@keyframes reveal {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.15);
+
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
